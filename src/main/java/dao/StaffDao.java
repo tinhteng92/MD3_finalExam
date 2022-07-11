@@ -59,8 +59,8 @@ public class StaffDao implements IService<Staff> {
             preparedStatement.setString(1, staff.getName());
             preparedStatement.setString(2, String.valueOf(staff.getDateOfBirth()));
             preparedStatement.setString(3, staff.getAddress());
-            preparedStatement.setString(4, staff.getPhoneNumber());
-            preparedStatement.setString(5, staff.getEmail());
+            preparedStatement.setString(4, staff.getEmail());
+            preparedStatement.setString(5, staff.getPhoneNumber());
             preparedStatement.setInt(6, staff.getDepartment().getId());
             check = preparedStatement.executeUpdate() > 0;
 
