@@ -9,7 +9,7 @@
 <center>
     <h1>Staff Management</h1>
     <h2>
-        <a href="/staff?action=students">List All Staff</a>
+        <a href="/staff">List All Staff</a>
     </h2>
 </center>
 <div align="center">

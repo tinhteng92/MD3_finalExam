@@ -48,6 +48,7 @@
                     <a href="/staff?action=edit&id=${staff.id}">Edit</a>
                     <a href="/staff?action=delete&id=${staff.id}">Delete</a>
                 </td>
+
             </tr>
         </c:forEach>
     </table>

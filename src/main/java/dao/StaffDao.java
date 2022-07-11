@@ -52,22 +52,22 @@ public class StaffDao implements IService<Staff> {
 
     @Override
     public boolean create(Staff staff) {
+        boolean check = false;
+        try (Connection connection = Connect_MySQL.getConnect();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_STAFF_SQL)){
 
-        try (Connection connection = Connect_MySQL.getConnect()){
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_STAFF_SQL);
             preparedStatement.setString(1, staff.getName());
             preparedStatement.setString(2, String.valueOf(staff.getDateOfBirth()));
             preparedStatement.setString(3, staff.getAddress());
             preparedStatement.setString(4, staff.getPhoneNumber());
             preparedStatement.setString(5, staff.getEmail());
             preparedStatement.setInt(6, staff.getDepartment().getId());
+            check = preparedStatement.executeUpdate() > 0;
 
-            return preparedStatement.execute();
         } catch (SQLException e) {
             printSQLException(e);
-            return false;
         }
-
+        return check;
     }
 
     @Override
